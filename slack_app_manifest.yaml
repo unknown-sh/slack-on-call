@@ -1,0 +1,87 @@
+{
+    "_metadata": {
+        "major_version": 1,
+        "minor_version": 0
+    },
+    "display_information": {
+        "name": "On-Call",
+        "long_description": "The On-Call Slack app makes it easy for teams to manage their on-call schedule and respond to incidents quickly and efficiently. This app integrates with PagerDuty to provide an up-to-date on-call schedule, enabling users to see who is currently on call and contact them in case of an emergency. The app also allows users to request overrides, create reminders, and manage user information. It offers a simple and user-friendly interface that streamlines the incident management process, making it easier for teams to resolve incidents and minimize downtime. Whether you're part of a small startup or a large enterprise, the On-Call Slack app can help you improve your incident response capabilities.",
+        "description": "On-Call schedule management service in Slack",
+        "background_color": "#06AC38"
+    },
+    "settings": {
+        "socket_mode_enabled": false,
+        "interactivity": {
+            "is_enabled": true,
+            "request_url": "https://slack-on-call.glitch.me/oncall/message_action"
+        },
+        "event_subscriptions": {
+            "request_url": "https://slack-on-call.glitch.me/oncall/message_action",
+            "bot_events": [
+                "app_home_opened",
+                "app_mention"
+            ]
+        }
+    },
+    "features": {
+        "app_home": {
+            "home_tab_enabled": true,
+            "messages_tab_enabled": true,
+            "messages_tab_read_only_enabled": false
+        },
+        "bot_user": {
+            "display_name": "On-Call"
+        },
+        "slash_commands": [
+            {
+                "command": "/oncall_schedule_create",
+                "description": "Create a new on-call schedule",
+                "usage_hint": "/oncall_schedule_create daily",
+                "url": "https://slack-on-call.glitch.me/oncall/schedule/create"
+            },
+            {
+                "command": "/oncall_schedule_add",
+                "description": "Add user(s) to an existing on-call schedule",
+                "usage_hint": "/oncall_schedule_add @username",
+                "url": "https://slack-on-call.glitch.me/oncall/schedule/add"
+            },
+            {
+                "command": "/oncall_schedule_view",
+                "description": "View the on-call schedule",
+                "usage_hint": "/oncall_schedule_view",
+                "url": "https://slack-on-call.glitch.me/oncall/schedule/view"
+            },
+            {
+                "command": "/oncall_schedule_override",
+                "description": "Override a shift on the on-call schedule",
+                "usage_hint": "/oncall_schedule_override @username",
+                "url": "https://slack-on-call.glitch.me/oncall/schedule/override"
+            },
+            {
+                "command": "/oncall_reminders",
+                "description": "Enable or disable reminder notifications",
+                "usage_hint": "/oncall_reminders on",
+                "url": "https://slack-on-call.glitch.me/oncall/reminders"
+            },
+            {
+                "command": "/oncall_pagerduty",
+                "description": "Connect to PagerDuty and sync on-call schedules",
+                "usage_hint": "/oncall_pagerduty [connect/disconnect]",
+                "url": "https://slack-on-call.glitch.me/oncall/pagerduty"
+            }
+        ]
+    },
+    "oauth_config": {
+        "scopes": {
+            "bot": [
+                "commands",
+                "chat:write",
+                "chat:write.public",
+                "app_mentions:read"
+            ]
+        },
+        "redirect_urls": [
+            "https://slack-on-call.glitch.me/oncall/auth"
+        ]
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "name": "on-call-slack-app",
+    "version": "1.0.0",
+    "description": "Easiest way to create on call shift schedules in Slack",
+    "main": "app.js",
+    "scripts": {
+      "start": "node app.js"
+    },
+    "dependencies": {
+      "@pagerduty/pdjs": "^2.2.4",
+      "@slack/bolt": "^3.12.2",
+      "dotenv": "^16.0.3",
+      "request": "^2.88.2"
+    },
+    "engines": {
+      "node": "16.x"
+    },
+    "devDependencies": {},
+    "author": "",
+    "license": "MIT"
+  }
